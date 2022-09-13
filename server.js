@@ -5,7 +5,7 @@ const app = express()
 
 const uri = process.env.MONGODB_URI;
 
-let count = 0
+let showTable = false;
 
 mongoose.connect(uri, {
   useNewUrlParser: true, useUnifiedTopology: true
@@ -15,13 +15,13 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/', async (req, res) => {
-  const shortUrls = await ShortUrl.find().limit(count).sort({_id:-1})
-  const showTable = count > 0
+  const shortUrls = await ShortUrl.find().limit(1).sort({_id:-1})
   res.render('index', { showTable, shortUrls: shortUrls })
+  showTable = false;
 })
 
 app.post('/shortUrls', async (req, res) => {
-  count++;
+  showTable = true;
   await ShortUrl.create({ full: req.body.fullUrl })
   res.redirect('/')
 })
