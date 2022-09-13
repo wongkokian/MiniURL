@@ -5,7 +5,7 @@ const app = express()
 
 const uri = process.env.MONGODB_URI;
 
-const count = 0
+let count = 0
 
 mongoose.connect(uri, {
   useNewUrlParser: true, useUnifiedTopology: true
@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/shortUrls', async (req, res) => {
-  count++
+  count++;
   await ShortUrl.create({ full: req.body.fullUrl })
   res.redirect('/')
 })
