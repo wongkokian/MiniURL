@@ -37,11 +37,11 @@
                         <% shortUrls.forEach(shortUrl => { %>
                             <tr>
                                 <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 40vw;">
-                                    <a href="<%= shortUrl.full %>" style="color: #FFFFFF; text-decoration: none">
+                                    <a href="<%= shortUrl.full %>" style="color: #FFFFFF; text-decoration: none" target="_blank">
                                     <%= shortUrl.full %></a>
                                 </td>
                                 <td>
-                                    <a href="<%= shortUrl.short %>" style="color: #FFFFFF; text-decoration: none">
+                                    <a href="<%= shortUrl.short %>" style="color: #FFFFFF; text-decoration: none" target="_blank">
                                         https://nodejs-miniurl.herokuapp.com/<%= shortUrl.short %></a>
                                 </td>
                             </tr>
