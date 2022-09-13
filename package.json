@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wongkokian/MiniURL.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wongkokian/MiniURL/issues"
+  },
+  "homepage": "https://github.com/wongkokian/MiniURL#readme"
 }
