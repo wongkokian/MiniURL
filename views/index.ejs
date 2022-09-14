@@ -16,39 +16,32 @@
         </div>
         <form action="/shortUrls" method="POST" class="my-4 form-inline">
             <div class="container" style="display: flex; justify-content: center;">
-                <input required placeholder="Insert your long URL here! :)" type="url" name="fullUrl" id="fullUrl" 
-                    class="form-control-lg" style="font-family: 'Didot'; margin-right: 2vw; width: 55vw;">
+                <input required placeholder="Paste your long URL here!" type="url" name="fullUrl" id="fullUrl" 
+                    class="form-control-lg" style="font-family: 'Didot'; margin-right: 10px; width: 50vw;">
                 <button class="btn" style="background-color: #BBE1FA; font-size: larger; font-family: 'Didot'" 
                     type="submit">Minimize!</button>
             </div>
         </form>
         <% if(showTable) { %>
-            <div class="container" style="display: flex; justify-content: center; width: 64vw;">
-                <table class="table table-striped table-hover table-reponsive" style="background-color:#0F4C75; 
-                    color:#BBE1FA; font-family: 'Didot'; border-radius: 10px; border-style: hidden; 
-                    margin-left: auto; margin-right: auto;">
-                    <thead>
+            <table class="table" style="background-color:#0F4C75; color:#BBE1FA;
+                font-family: 'Didot'; border-radius: 10px; border-style: hidden; text-align: center;
+                margin-left: auto; margin-right: auto; width: 1%;">
+                <thead>
+                    <tr>
+                        <th>Your MiniURL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% shortUrls.forEach(shortUrl => { %>
                         <tr>
-                            <th>Long URL</th>
-                            <th>MiniURL</th>
+                            <td class="block" style="white-space: nowrap;">
+                                <a href="<%= shortUrl.short %>" style="color: #FFFFFF; text-decoration: none" target="_blank">
+                                    nodejs-miniurl.herokuapp.com/<%= shortUrl.short %></a>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <% shortUrls.forEach(shortUrl => { %>
-                            <tr>
-                                <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 40vw;">
-                                    <a href="<%= shortUrl.full %>" style="color: #FFFFFF; text-decoration: none" target="_blank">
-                                    <%= shortUrl.full %></a>
-                                </td>
-                                <td>
-                                    <a href="<%= shortUrl.short %>" style="color: #FFFFFF; text-decoration: none" target="_blank">
-                                        https://nodejs-miniurl.herokuapp.com/<%= shortUrl.short %></a>
-                                </td>
-                            </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
-            </div>
+                    <% }) %>
+                </tbody>
+            </table>
         <% } %>
     </div>
 </body>
